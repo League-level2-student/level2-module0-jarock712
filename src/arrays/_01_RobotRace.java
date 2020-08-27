@@ -1,6 +1,9 @@
 package arrays;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
 
@@ -26,11 +29,22 @@ public class _01_RobotRace {
 			joe[i].move(ron);
 		}
 		//6. use a while loop to repeat step 5 until a robot has reached the top of the screen.
-		
+		int num = 0;
+		int y = joe[num].getY();
+		int finish = 0;
+		do {
+			for (int i = 0; i < joe.length; i++) {
+				joe[i].move(y);
+			}
+			num++;
+		} while (y<500 && y>0);
 		//7. declare that robot the winner and throw it a party!
-
+		if (y==finish) {
+			JOptionPane.showMessageDialog(null, "And the winner is: " + joe[num] );
+		}
 		//8. try different races with different amounts of robots.
-
+		
 		//9. make the robots race around a circular track.
+		
 	}
 }
