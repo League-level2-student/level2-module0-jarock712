@@ -24,24 +24,25 @@ public class _01_RobotRace {
 		//   a random amount less than 50.
 		Random ran = new Random();
 		for (int i = 0; i < joe.length; i++) {
-			int ron = ran.nextInt(500);
 			joe[i].setSpeed(50);
-			joe[i].move(ron);
 		}
 		//6. use a while loop to repeat step 5 until a robot has reached the top of the screen.
-		int num = 0;
-		int y = joe[num].getY();
-		int finish = 0;
+		int winner = -1;
+		boolean win = false;
 		do {
 			for (int i = 0; i < joe.length; i++) {
-				joe[i].move(y);
+				int rand = ran.nextInt(30);
+				joe[i].move(rand);
+				joe[i].turn(10);
+				if (joe[i].getY() < 0) {
+					win = true;
+					winner = i;
+					break;
+				}
 			}
-			num++;
-		} while (y<500 && y>0);
+		} while (!win);
 		//7. declare that robot the winner and throw it a party!
-		if (y==finish) {
-			JOptionPane.showMessageDialog(null, "And the winner is: " + joe[num] );
-		}
+		JOptionPane.showMessageDialog(null, "The winner is: " + winner);
 		//8. try different races with different amounts of robots.
 		
 		//9. make the robots race around a circular track.
