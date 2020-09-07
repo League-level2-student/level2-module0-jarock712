@@ -33,7 +33,6 @@ public class _01_RobotRace {
 			for (int i = 0; i < joe.length; i++) {
 				int rand = ran.nextInt(30);
 				joe[i].move(rand);
-				joe[i].turn(10);
 				if (joe[i].getY() < 0) {
 					win = true;
 					winner = i;
